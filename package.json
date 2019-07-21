@@ -1,0 +1,28 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "webpack --config webpack.dev.js",
+    "prod": "webpack --config webpack.prod.js",
+    "watch":"webpack --watch --config webpack.dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dqhan/Webpack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dqhan/Webpack/issues"
+  },
+  "homepage": "https://github.com/Dqhan/Webpack#readme",
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "fs": "0.0.1-security",
+    "webpack": "^4.23.1",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.1.2"
+  }
+}

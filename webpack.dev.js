@@ -20,13 +20,12 @@ module.exports = {
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
-        // function () {
-        //     this.plugin('done', function (statsData) {
-        //         const stats = statsData.toJson();
-        //         console.log(statsData);
-        //         fs.writeFileSync(path.join(__dirname, 'stats.json'), JSON.stringify(stats));
-        //     })
-        // }
-        
+        function () {
+            this.plugin('done', function (statsData) {
+                const stats = statsData.toJson();
+                console.log(statsData);
+                fs.writeFileSync(path.join(__dirname, 'stats.json'), JSON.stringify(stats));
+            })
+        }
     ]
 }

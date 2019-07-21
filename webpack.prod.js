@@ -4,7 +4,7 @@ var fs = require('fs');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: './app.js',
     output: {
         path: path.resolve(__dirname, './build/'),
@@ -20,13 +20,12 @@ module.exports = {
     },
     plugins: [
         // new BundleAnalyzerPlugin(),
-        // function () {
-        //     this.plugin('done', function (statsData) {
-        //         const stats = statsData.toJson();
-        //         console.log(statsData);
-        //         fs.writeFileSync(path.join(__dirname, 'stats.json'), JSON.stringify(stats));
-        //     })
-        // }
-        
+        function () {
+            this.plugin('done', function (statsData) {
+                const stats = statsData.toJson();
+                console.log(statsData);
+                fs.writeFileSync(path.join(__dirname, 'stats.json'), JSON.stringify(stats));
+            })
+        }
     ]
 }
