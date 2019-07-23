@@ -3,3 +3,8 @@
     width           : 50px;
     height          : 50px;
 }
+.main{
+    width: 500px;
+    height: 500px;
+    background-color: aliceblue;
+}
