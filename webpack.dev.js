@@ -9,6 +9,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
     mode: "development",
+    // mode: "production",
     entry: './app.js',
     output: {
         path: path.resolve(__dirname, './build/'),
@@ -135,7 +136,7 @@ module.exports = {
          */
         new webpack.optimize.ModuleConcatenationPlugin(),
         
-        // new BundleAnalyzerPlugin(),
+        new BundleAnalyzerPlugin(),
         // function () {
         //     this.plugin('done', function (statsData) {
         //         const stats = statsData.toJson();
