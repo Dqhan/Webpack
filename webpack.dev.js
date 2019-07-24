@@ -134,6 +134,7 @@ module.exports = {
          * 开启 Scope Hoisting
          */
         new webpack.optimize.ModuleConcatenationPlugin(),
+        
         // new BundleAnalyzerPlugin(),
         // function () {
         //     this.plugin('done', function (statsData) {

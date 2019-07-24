@@ -1,9 +1,7 @@
 import React from 'react';
-import a from './test-a.js';
 export default class Main extends React.Component {
     constructor(props) {
         super(props)
-        console.log(a);
     }
 
     render() {
