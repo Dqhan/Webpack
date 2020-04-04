@@ -1,0 +1,8 @@
+单独使用一个入口文件作为第三方引用入口，构建出来得文件为第三方集合，
+
+*第三方文件引用入口vendorentry.js
+*第三方构建webpack.vendor.js
+
+通过HtmlWebpackPlugin动态写入html模板中
+
+缺点，第三方输出文件与业务逻辑输出文件的html   “可能”   在devops的时候出现路径问题，没实践过。

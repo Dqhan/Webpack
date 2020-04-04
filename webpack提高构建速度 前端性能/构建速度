@@ -1,0 +1,30 @@
+通过externals 提取第三方类库
+
+通过DllPlugin DllReferencePlugin提取第三方类库
+
+Happypack 多线层编译{
+    const happypack  = require('happypack');
+    const os = require('os') //获取操作系统cup
+    const happyPackThreadPool = happypack.ThreadPool({size:os.cpus().length}) 
+}
+happypack本质上是loader得替代品{
+    use:[
+        {
+            loader: "happypack?loader='babel-loader'"
+        }
+    ]
+    注册插件
+    plugins:[
+        new happypack({
+            id:'babel-loader',
+            threadPool: happyPackThreadPool
+        })
+    ]
+}
+
+
+加速UglifyPlugin压缩速度
+
+Tree shaking
+
+scope hoisting
