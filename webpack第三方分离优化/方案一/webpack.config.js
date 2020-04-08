@@ -65,12 +65,12 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            // templateContent: () => {
-            //     let template = path.resolve(__dirname, './index.html');
-            //     return read(template)
-            //         .toString()
-            //         .replace('$dll$', '../vendor/vendors.dll.js');
-            // },
+            templateContent: () => {
+                let template = path.resolve(__dirname, './index.html');
+                return read(template)
+                    .toString()
+                    .replace('$dll$', '../vendor/dll.js');
+            },
             title: 'index',
             template: './index.html',
             filename: 'index.html',
@@ -78,17 +78,18 @@ module.exports = {
             hash: true
         }),
         // new webpack.HashedModuleIdsPlugin(),
+        
     ],
-    // externals: {
-    //     'react': 'react',
-    //     'react-dom': 'react-dom'
-    // }
     externals: {
-        jquery: {
-            root: 'jquery',
-            commonjs: 'jquery',
-            commonjs2: 'jquery',
-            amd: 'jquery',
-        },
-    },
+        'react': 'window.util.React',
+        'react-dom': 'window.util.ReactDOM'
+    }
+    // externals: {
+    //     jquery: {
+    //         root: 'jquery',
+    //         commonjs: 'jquery',
+    //         commonjs2: 'jquery',
+    //         amd: 'jquery',
+    //     },
+    // },
 }

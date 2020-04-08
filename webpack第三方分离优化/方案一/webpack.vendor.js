@@ -7,7 +7,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './vendor/'),
-        filename: "dll.js"
+        filename: "dll.js",
+        library:'util',
+        libraryTarget: 'window'
     },
     module: {
         rules: [
@@ -22,23 +24,6 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    },
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
-                default: false,
-                vendors: false,
-                vendors: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: "vendors",
-                    priority: -10,
-                    chunks: 'all',
-                    reuseExistingChunk: true,
-                    enforce: true
-                },
-            }
-        }
     },
     plugins: [
         new CleanWebpackPlugin(),
