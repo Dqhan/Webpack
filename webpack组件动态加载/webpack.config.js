@@ -1,6 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: "./index.js",
@@ -14,31 +14,56 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.css$/,
+        loader: "css-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
+        // options: {
+        //   plugins: [
+        //     [
+        //       "import",
+        //       {
+        //         libraryName: "antd",
+        //         libraryDirectory: "es",
+        //         style: false,
+        //       },
+        //     ],
+        //   ],
+        // },
         options: {
           plugins: [
             [
               "import",
               {
-                libraryName: "dqhan",
-                // libraryDirectory: 'lib',
-                camel2DashComponentName: false, // 是否需要驼峰转短线
-                camel2UnderlineComponentName: false, // 是否需要驼峰转下划线
+                libraryName: "test",
+                camel2DashComponentName: false,
+                camel2UnderlineComponentName: false,
                 customName: (name) => {
-                  return `Lib/Components/${name}`; // 核心配置 根据你自己的组件目录配置
+                  console.log(name);
+                  return `./AUI/Components/${name}`;
                 },
-                style: () => {
-                  return false;
-                },
+                style: false,
               },
             ],
-            //...others
           ],
         },
       },
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "index",
+      template: "./index.html",
+      filename: "index.html",
+      hash: true,
+    }),
+  ],
+  resolve: {
+    extensions: [".js", ".json", ".jsx", ".css"],
+  },
 };

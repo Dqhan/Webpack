@@ -9,6 +9,7 @@
     // "env",
     "react",
     "stage-0"
-  ],
+  ]
+
   //"modules": false
 }

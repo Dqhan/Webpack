@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Bar } from "dqhan";
+// import { Button } from "antd";
+import { Bar } from "test";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
+        {/* <Button /> */}
         <Bar />
       </div>
     );
