@@ -1,9 +1,17 @@
-require('./index.less')
-require('./appstyle.less')
-require('./common');
-console.log('this is app')
+import(/* webpackChunkName: "foo" */ "./foo")
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
-ReactDOM.render(
-    <div>React</div>,
-    document.getElementById('app')
-)
+setTimeout(function () {
+  import(/* webpackChunkName: "bar" */ "./bar")
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+}, 3000);
