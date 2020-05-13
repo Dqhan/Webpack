@@ -82,7 +82,9 @@ module.exports = {
     ],
     externals: {
         'react': 'window.util.React',
-        'react-dom': 'window.util.ReactDOM'
+        'react-dom': 'window.util.ReactDOM',
+        'jQuery': 'window.util.jquery',
+        '$': 'window.util.jquery'
     }
     // externals: {
     //     jquery: {
